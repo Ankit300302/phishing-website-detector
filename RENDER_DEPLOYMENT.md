@@ -1,12 +1,13 @@
 # Render Deployment Guide for Phishing Detection App
 
-## ✅ Fixed Issues
+## ✅ Final Fix Applied
 
-The deployment has been updated to fix the scikit-learn compatibility issue with Render:
+The deployment has been updated to fix all compatibility issues with Render:
 
-- **Python Version**: Updated to 3.11.0 (compatible with Render)
-- **Dependencies**: Updated to specific versions that work with Python 3.11
-- **Model**: Retrained with compatible scikit-learn version
+- **Python Version**: Updated to 3.12.0 (compatible with Render)
+- **Dependencies**: Updated to latest compatible versions
+- **Setuptools**: Added explicit setuptools and wheel dependencies
+- **Model**: Retrained with scikit-learn 1.5.2
 - **Accuracy**: Maintained at 97.42%
 
 ## 🚀 Quick Deploy to Render
@@ -16,7 +17,7 @@ The deployment has been updated to fix the scikit-learn compatibility issue with
 1. **Push your code to GitHub** (if not already done):
    ```bash
    git add .
-   git commit -m "Fix Render compatibility"
+   git commit -m "Final Render compatibility fix - updated Python 3.12 and dependencies"
    git push origin main
    ```
 
@@ -50,10 +51,17 @@ The deployment has been updated to fix the scikit-learn compatibility issue with
 
 ### Files Updated for Render:
 
-1. **`runtime.txt`**: Specifies Python 3.11.0
-2. **`requirements.txt`**: Updated with compatible package versions
+1. **`runtime.txt`**: Specifies Python 3.12.0
+2. **`requirements.txt`**: Updated with latest compatible package versions
 3. **`Procfile`**: Specifies gunicorn startup command
-4. **`pickle/model.pkl`**: Retrained model compatible with scikit-learn 1.3.0
+4. **`pickle/model.pkl`**: Retrained model compatible with scikit-learn 1.5.2
+
+### Key Dependencies:
+- `setuptools>=65.0.0` - Fixes build issues
+- `wheel>=0.38.0` - Ensures proper package installation
+- `scikit_learn==1.5.2` - Latest stable version
+- `numpy==1.26.4` - Compatible with Python 3.12
+- `pandas==2.2.2` - Latest stable version
 
 ### Environment Variables (Optional):
 
@@ -80,9 +88,9 @@ You can add these in Render dashboard under "Environment":
 ### Common Issues:
 
 1. **Build Fails**:
-   - Check that all files are committed to GitHub
-   - Verify `requirements.txt` is in the root directory
-   - Ensure `pickle/model.pkl` exists
+   - ✅ Fixed: Added setuptools and wheel dependencies
+   - ✅ Fixed: Updated to Python 3.12.0
+   - ✅ Fixed: Updated all package versions
 
 2. **App Crashes**:
    - Check logs in Render dashboard
@@ -90,7 +98,7 @@ You can add these in Render dashboard under "Environment":
    - Ensure all dependencies are installed
 
 3. **Model Loading Errors**:
-   - The model has been retrained for compatibility
+   - ✅ Fixed: Model retrained with scikit-learn 1.5.2
    - Ensure `pickle/model.pkl` is included in deployment
 
 ### Logs and Monitoring:
@@ -141,4 +149,12 @@ You can add these in Render dashboard under "Environment":
 - **App Issues**: Check logs in Render dashboard
 - **Model Issues**: Verify scikit-learn compatibility
 
-Your app should now deploy successfully on Render! 🎉
+## 🎉 What's Fixed
+
+✅ **Setuptools Error**: Added explicit setuptools and wheel dependencies  
+✅ **Python Version**: Updated to 3.12.0  
+✅ **Package Compatibility**: All packages updated to compatible versions  
+✅ **Model Compatibility**: Retrained with scikit-learn 1.5.2  
+✅ **Build Process**: Streamlined for Render deployment  
+
+Your app should now deploy successfully on Render! 🚀
