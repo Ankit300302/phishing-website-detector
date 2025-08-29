@@ -56,3 +56,4 @@ echo ""
 echo "📊 To view logs: heroku logs --tail"
 echo "🔧 To restart: heroku restart"
 echo "🗑️  To delete app: heroku apps:destroy $APP_NAME --confirm $APP_NAME"
+

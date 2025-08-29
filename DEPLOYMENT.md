@@ -122,3 +122,4 @@
 1. **Logs**: Monitor application logs for errors
 2. **Performance**: Monitor response times and resource usage
 3. **Uptime**: Set up uptime monitoring for your deployed application
+
