@@ -9,7 +9,7 @@
 
 body {
   padding: 10% 5%;
-  background-image: url("../img/hh.jpg");
+  background-image: url("/static/img/hh.jpg");
   justify-content: center;
   align-items: center; 
   height: 100vh;
