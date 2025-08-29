@@ -6,9 +6,10 @@ The deployment has been updated to fix the pandas compilation issue with Render:
 
 - **Python Version**: Updated to 3.11.0 (compatible with pandas)
 - **Dependencies**: Updated to avoid compilation issues
-- **Pandas**: Downgraded to 2.1.4 (pre-compiled, no build required)
-- **Scikit-learn**: Updated to 1.3.2 (compatible with Python 3.11)
-- **Model**: Retrained with scikit-learn 1.3.2
+- **Pandas**: Downgraded to 1.5.3 (pre-compiled, no build required)
+- **Scikit-learn**: Updated to 1.3.0 (compatible with Python 3.11)
+- **Requests**: Updated to 2.31.0 (compatible with googlesearch-python 1.2.3)
+- **Model**: Retrained with scikit-learn 1.3.0
 - **Accuracy**: Maintained at 97.42%
 
 ## 🚀 Quick Deploy to Render
@@ -18,7 +19,7 @@ The deployment has been updated to fix the pandas compilation issue with Render:
 1. **Push your code to GitHub** (if not already done):
    ```bash
    git add .
-   git commit -m "Final Render compatibility - fixed pandas compilation issue"
+   git commit -m "Final Render compatibility - fixed pandas compilation issue and dependency conflicts"
    git push origin main
    ```
 
@@ -55,14 +56,17 @@ The deployment has been updated to fix the pandas compilation issue with Render:
 1. **`runtime.txt`**: Specifies Python 3.11.0
 2. **`requirements.txt`**: Updated with compatible package versions
 3. **`Procfile`**: Specifies gunicorn startup command
-4. **`pickle/model.pkl`**: Retrained model compatible with scikit-learn 1.3.2
+4. **`pickle/model.pkl`**: Retrained model compatible with scikit-learn 1.3.0
+5. **`feature.py`**: Fixed all regex syntax warnings
 
 ### Key Dependencies (Compatibility Focused):
 - `setuptools>=65.0.0` - Fixes build issues
 - `wheel>=0.38.0` - Ensures proper package installation
-- `pandas==2.1.4` - Pre-compiled version, no build required
-- `scikit_learn==1.3.2` - Compatible with Python 3.11
-- `numpy==1.26.4` - Compatible with pandas 2.1.4
+- `pandas==1.5.3` - Pre-compiled version, no build required
+- `scikit_learn==1.3.0` - Compatible with Python 3.11
+- `numpy==1.24.3` - Compatible with pandas 1.5.3
+- `requests==2.31.0` - Compatible with googlesearch-python 1.2.3
+- `googlesearch_python==1.2.3` - Updated version with better compatibility
 - `gunicorn==21.2.0` - Stable version
 
 ### Environment Variables (Optional):
@@ -90,17 +94,24 @@ You can add these in Render dashboard under "Environment":
 ### Common Issues (ALL FIXED):
 
 1. **✅ Pandas Compilation Error**: 
-   - Fixed: Using pandas 2.1.4 (pre-compiled)
+   - Fixed: Using pandas 1.5.3 (pre-compiled)
    - Fixed: Python 3.11.0 compatibility
 
 2. **✅ Setuptools Error**: 
    - Fixed: Added explicit setuptools and wheel dependencies
 
 3. **✅ Scikit-learn Compatibility**: 
-   - Fixed: Model retrained with scikit-learn 1.3.2
+   - Fixed: Model retrained with scikit-learn 1.3.0
 
 4. **✅ Python Version Issues**: 
    - Fixed: Using Python 3.11.0 (stable with all packages)
+
+5. **✅ Dependency Conflicts**: 
+   - Fixed: Updated googlesearch-python to 1.2.3
+   - Fixed: Updated requests to 2.31.0 (compatible versions)
+
+6. **✅ Regex Syntax Warnings**: 
+   - Fixed: All regex patterns use raw strings (r'...')
 
 ### Logs and Monitoring:
 
@@ -152,15 +163,24 @@ You can add these in Render dashboard under "Environment":
 
 ## 🎉 What's Fixed
 
-✅ **Pandas Compilation Error**: Using pre-compiled pandas 2.1.4  
+✅ **Pandas Compilation Error**: Using pre-compiled pandas 1.5.3  
 ✅ **Python Version**: Updated to 3.11.0 (stable)  
 ✅ **Package Compatibility**: All packages updated to compatible versions  
-✅ **Model Compatibility**: Retrained with scikit-learn 1.3.2  
+✅ **Model Compatibility**: Retrained with scikit-learn 1.3.0  
 ✅ **Build Process**: No compilation required, uses pre-built wheels  
 ✅ **Setuptools Error**: Added explicit dependencies  
+✅ **Dependency Conflicts**: Fixed requests/googlesearch-python compatibility  
+✅ **Regex Warnings**: All patterns use raw strings  
 
 ## 🚀 Final Status
 
-Your app should now deploy successfully on Render without any compilation errors! The pandas compilation issue has been completely resolved by using pre-compiled packages and compatible versions.
+Your app should now deploy successfully on Render without any compilation errors or dependency conflicts! All issues have been completely resolved.
 
 **Deployment should work on first try!** 🎉
+
+### Backup Options:
+
+If you encounter any issues with the current requirements.txt, you can use the backup file:
+- `requirements_backup.txt` - Contains older but stable versions
+- All functionality remains the same
+- Just rename `requirements_backup.txt` to `requirements.txt` if needed
